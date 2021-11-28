@@ -7,6 +7,8 @@ import {
     CryptoBotOptions,
     CryptoBotResponseData
 } from "../types";
+import {CryptoBotInvoice} from "../types/cryptoBotInvoice";
+import {CryptoBotInvoiceResult} from "../types/cryptoBotInvoiceResult";
 
 const axios = require('axios').default;
 
@@ -60,5 +62,9 @@ export class CryptoBot {
 
     getExchangeRates() {
         return this.request<CryptoBotExchangeRate[]>('getExchangeRates')
+    }
+
+    createInvoice(input: CryptoBotInvoice) {
+        return this.request<CryptoBotInvoiceResult>('createInvoice', input)
     }
 }
