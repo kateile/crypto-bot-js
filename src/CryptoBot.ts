@@ -1,3 +1,6 @@
+import {CryptoBotResponseData} from "./types/cryptoBotData";
+import {CryptoBotApp} from "./types/cryptoBotApp";
+
 const axios = require('axios').default;
 
 /**
@@ -26,7 +29,7 @@ export class CryptoBot {
 
     }
 
-    private async request(path: Method, params?: object) {
+    private async request<T>(path: Method, params?: object) {
         // At the end we need something like https://pay.crypt.bot/app23:AAN6L32wEhWLR5eaMMJJVXbRVu4HLgKW3L0/getMe
         const endpoint = () => {
             const root = this.options.target === "mainnet" ? 'https://pay.crypt.bot' : 'https://testnet-pay.crypt.bot'
@@ -42,10 +45,16 @@ export class CryptoBot {
 
         const response = await instance.post(path, params);
 
-        return response.data
+        const data = response.data as CryptoBotResponseData<T>
+
+        if (data.ok) {
+            return data.result!
+        } else {
+            throw new Error(`Request failed with error: ${data.error}`)
+        }
     }
 
-    getMe() {
-        return this.request('getMe')
+    getMe(): Promise<CryptoBotApp> {
+        return this.request<CryptoBotApp>('getMe')
     }
 }
