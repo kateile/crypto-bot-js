@@ -1,5 +1,6 @@
 import {CryptoBotResponseData} from "./types/cryptoBotData";
 import {CryptoBotApp} from "./types/cryptoBotApp";
+import {CryptoBotBalance} from "./types/cryptoBotBalance";
 
 const axios = require('axios').default;
 
@@ -44,7 +45,7 @@ export class CryptoBot {
         });
 
         const response = await instance.post(path, params);
-
+        console.log('response data: ',response.data) //todo use debug
         const data = response.data as CryptoBotResponseData<T>
 
         if (data.ok) {
@@ -54,7 +55,14 @@ export class CryptoBot {
         }
     }
 
-    getMe(): Promise<CryptoBotApp> {
+    getMe() {
         return this.request<CryptoBotApp>('getMe')
+    }
+
+    /**
+     * This returns array of balances your app has accumulated.
+     */
+    getBalance() {
+        return this.request<CryptoBotBalance[]>('getBalance')
     }
 }
