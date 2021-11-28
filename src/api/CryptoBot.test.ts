@@ -111,4 +111,21 @@ describe('CryptoBot', () => {
         expect(result.status).toBeDefined()
         expect(result.hash).toBeDefined()
     });
+
+    it('should send getPayments', async () => {
+        const invoiceInput: CryptoBotInvoiceInput = {
+            amount: "0.1",
+            asset: "TON"
+        }
+
+        const invoiceResult = await cryptoBot.createInvoice(invoiceInput)
+        await cryptoBot.confirmPayment({invoice_id: invoiceResult.invoice_id})
+
+        const result = await cryptoBot.getPayments({
+            offset: 0,
+            count: 100
+        })
+
+        expect(result.count).toBeDefined()
+    });
 })

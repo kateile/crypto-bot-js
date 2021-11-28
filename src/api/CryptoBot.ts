@@ -4,14 +4,15 @@ import {
     CryptoBotConfirmInvoiceInput,
     CryptoBotCurrency,
     CryptoBotExchangeRate,
-    CryptoBotInvoiceInput,
+    CryptoBotGetInvoicesInput,
+    CryptoBotGetInvoicesResult,
+    CryptoBotGetPaymentsInput,
     CryptoBotInvoice,
+    CryptoBotInvoiceInput,
     CryptoBotMethod,
     CryptoBotOptions,
     CryptoBotResponseData
 } from "../types";
-import {CryptoBotGetInvoicesInput} from "../types/cryptoBotGetInvoicesInput";
-import {CryptoBotGetInvoicesResult} from "../types/cryptoBotGetInvoicesResult";
 
 const axios = require('axios').default;
 
@@ -85,5 +86,15 @@ export class CryptoBot {
      */
     confirmPayment(input: CryptoBotConfirmInvoiceInput) {
         return this.request<CryptoBotInvoice>('confirmPayment', input)
+    }
+
+    /**
+     * Use this method to get paid and unconfirmed invoices of your app.
+     * On success, the returns array of paid and unconfirmed invoices.
+     * @param input
+     */
+    getPayments(input: CryptoBotGetPaymentsInput) {
+        //todo this fails
+        return this.request<CryptoBotGetInvoicesResult>('getPayments', input)
     }
 }
