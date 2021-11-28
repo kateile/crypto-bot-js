@@ -5,9 +5,22 @@
   "license": "MIT",
   "author": "Sylvanus Kateile",
   "description": "Promise based Crypto Bot client for the browser and node.js",
+  "scripts": {
+    "dev": "set DEBUG=mwapp && npm run build && node examples/express.js",
+    "build": "rimraf lib && tsc",
+    "test": "jest --runInBand",
+    "prettier:fix": "prettier --write \"**/**.ts\"",
+    "prepare": "npm run generate && npm run build",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "pub": "npm publish --access=public",
+    "generate": "graphql-codegen --config codegen.yml"
+  },
   "dependencies": {
     "axios": "^0.24.0",
-    "debug": "^4.3.3"
+    "debug": "^4.3.3",
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
@@ -15,7 +28,6 @@
     "jest": "^27.3.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.7",
-    "tslib": "^2.3.1",
     "typescript": "^4.5.2"
   }
 }
