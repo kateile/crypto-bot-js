@@ -36,4 +36,13 @@ describe('CryptoBot', () => {
         expect(result[0].url).toBeDefined()
         expect(result[0].decimals).toBeDefined()
     });
+
+    it('should send getExchangeRates', async () => {
+        const result = await cryptoBot.getExchangeRates()
+
+        expect(result[0].is_valid).toBeDefined()
+        expect(result[0].source).toBeDefined()
+        expect(result[0].target).toBeDefined()
+        expect(result[0].rate).toBeDefined()
+    });
 })

@@ -2,6 +2,7 @@ import {CryptoBotResponseData} from "./types/cryptoBotData";
 import {CryptoBotApp} from "./types/cryptoBotApp";
 import {CryptoBotBalance} from "./types/cryptoBotBalance";
 import {CryptoBotCurrency} from "./types/cryptoBotCurrency";
+import {CryptoBotExchangeRate} from "./types/cryptoBotExchangeRate";
 
 const axios = require('axios').default;
 
@@ -69,5 +70,9 @@ export class CryptoBot {
 
     getCurrencies() {
         return this.request<CryptoBotCurrency[]>('getCurrencies')
+    }
+
+    getExchangeRates() {
+        return this.request<CryptoBotExchangeRate[]>('getExchangeRates')
     }
 }
