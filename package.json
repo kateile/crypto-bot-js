@@ -1,0 +1,15 @@
+{
+  "name": "crypto-bot-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Sylvanus Kateile",
+  "description": "Promise based Crypto Bot client for the browser and node.js",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "debug": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0"
+  }
+}
