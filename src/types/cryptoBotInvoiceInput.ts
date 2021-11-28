@@ -3,7 +3,7 @@ import {CryptoBotAsset} from "./cryptoBotAsset";
 /**
  * This describes parameters obtained in result of getMe() response
  */
-export type CryptoBotInvoice = {
+export type CryptoBotInvoiceInput = {
     /**
      * Currency code. Supported assets: BTC, TON, ETH (only testnet), USDT, USDC, BUSD.
      */

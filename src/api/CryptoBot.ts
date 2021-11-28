@@ -1,14 +1,15 @@
 import {
     CryptoBotApp,
     CryptoBotBalance,
+    CryptoBotConfirmInvoiceInput,
     CryptoBotCurrency,
     CryptoBotExchangeRate,
+    CryptoBotInvoiceInput,
+    CryptoBotInvoiceResult,
     CryptoBotMethod,
     CryptoBotOptions,
     CryptoBotResponseData
 } from "../types";
-import {CryptoBotInvoice} from "../types/cryptoBotInvoice";
-import {CryptoBotInvoiceResult} from "../types/cryptoBotInvoiceResult";
 
 const axios = require('axios').default;
 
@@ -64,7 +65,15 @@ export class CryptoBot {
         return this.request<CryptoBotExchangeRate[]>('getExchangeRates')
     }
 
-    createInvoice(input: CryptoBotInvoice) {
+    createInvoice(input: CryptoBotInvoiceInput) {
         return this.request<CryptoBotInvoiceResult>('createInvoice', input)
+    }
+
+    /**
+     * Use this method to confirm paid invoice of your app. On success, the return confirmed invoice.
+     * @param input
+     */
+    confirmPayment(input: CryptoBotConfirmInvoiceInput) {
+        return this.request<CryptoBotInvoiceResult>('confirmPayment', input)
     }
 }

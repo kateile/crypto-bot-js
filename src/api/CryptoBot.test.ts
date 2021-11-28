@@ -1,5 +1,5 @@
 import {CryptoBot} from "./CryptoBot";
-import {CryptoBotInvoice} from "../types/cryptoBotInvoice";
+import {CryptoBotInvoiceInput} from "../types";
 
 describe('CryptoBot', () => {
     let cryptoBot: CryptoBot
@@ -48,7 +48,7 @@ describe('CryptoBot', () => {
     });
 
     it('should send createInvoice', async () => {
-        const inv: CryptoBotInvoice = {
+        const inv: CryptoBotInvoiceInput = {
             amount: "0.1",
             asset: "BTC"
         }
@@ -65,5 +65,22 @@ describe('CryptoBot', () => {
         expect(result.allow_comments).toBeDefined()
         expect(result.allow_anonymous).toBeDefined()
         expect(result.is_confirmed).toBeDefined()
+    });
+
+    it('should send confirmPayment', async () => {
+        const inv: CryptoBotInvoiceInput = {
+            amount: "0.2",
+            asset: "BTC"
+        }
+
+        const invoiceResult = await cryptoBot.createInvoice(inv)
+
+        const result = await cryptoBot.confirmPayment({
+            invoice_id: invoiceResult.invoice_id
+        })
+
+        expect(result.invoice_id).toBeDefined()
+        expect(result.status).toBeDefined()
+        expect(result.hash).toBeDefined()
     });
 })
