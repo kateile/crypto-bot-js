@@ -1,38 +1,22 @@
-import {CryptoBotResponseData} from "./types/cryptoBotData";
-import {CryptoBotApp} from "./types/cryptoBotApp";
-import {CryptoBotBalance} from "./types/cryptoBotBalance";
-import {CryptoBotCurrency} from "./types/cryptoBotCurrency";
-import {CryptoBotExchangeRate} from "./types/cryptoBotExchangeRate";
+import {
+    CryptoBotApp,
+    CryptoBotBalance,
+    CryptoBotCurrency,
+    CryptoBotExchangeRate,
+    CryptoBotMethod,
+    CryptoBotOptions,
+    CryptoBotResponseData
+} from "../types";
 
 const axios = require('axios').default;
 
-/**
- * Params used for initiating client
- */
-export type CryptoBotOptions = {
-    target: 'testnet' | 'mainnet',
-    token: string,
-    timeout?: number
-}
-
-/**
- * Methods supported by CryptoBot
- */
-type Method = 'getMe' |
-    'createInvoice' |
-    'getInvoices' |
-    'getPayments' |
-    'confirmPayment' |
-    'getBalance' |
-    'getExchangeRates' |
-    'getCurrencies'
 
 export class CryptoBot {
     constructor(private options: CryptoBotOptions) {
 
     }
 
-    private async request<T>(path: Method, params?: object) {
+    private async request<T>(path: CryptoBotMethod, params?: object) {
         // At the end we need something like https://pay.crypt.bot/app23:AAN6L32wEhWLR5eaMMJJVXbRVu4HLgKW3L0/getMe
         const endpoint = () => {
             const root = this.options.target === "mainnet" ? 'https://pay.crypt.bot' : 'https://testnet-pay.crypt.bot'
@@ -43,11 +27,13 @@ export class CryptoBot {
         //type AxiosInstance
         const instance = axios.create({
             baseURL: endpoint(),
-            timeout: this.options.timeout ?? 0,// default is `0` (no timeout)
+            timeout: this.options.timeout ?? 60 * 1000,// default is 1 minute (60 milliseconds)
         });
 
         const response = await instance.post(path, params);
-        console.log('response data: ',response.data) //todo use debug
+
+        console.log('response data: ', response.data) //todo use debug
+
         const data = response.data as CryptoBotResponseData<T>
 
         if (data.ok) {
