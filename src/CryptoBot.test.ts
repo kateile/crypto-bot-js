@@ -24,4 +24,16 @@ describe('CryptoBot', () => {
         expect(result[0].currency_code).toBeDefined()
         expect(result[0].available).toBeDefined()
     });
+
+    it('should send getCurrencies', async () => {
+        const result = await cryptoBot.getCurrencies()
+
+        expect(result[0].is_blockchain).toBeDefined()
+        expect(result[0].is_stablecoin).toBeDefined()
+        expect(result[0].is_fiat).toBeDefined()
+        expect(result[0].name).toBeDefined()
+        expect(result[0].code).toBeDefined()
+        expect(result[0].url).toBeDefined()
+        expect(result[0].decimals).toBeDefined()
+    });
 })
