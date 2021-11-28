@@ -49,25 +49,44 @@ export class CryptoBot {
         }
     }
 
+    /**
+     * A simple method for testing your app's authentication token.
+     * Requires no parameters.
+     * Returns basic information about the app.
+     */
     getMe() {
         return this.request<CryptoBotApp>('getMe')
     }
 
     /**
-     * This returns array of balances your app has accumulated.
+     * Use this method to get balance of your app.
+     * Returns array of assets.
      */
     getBalance() {
         return this.request<CryptoBotBalance[]>('getBalance')
     }
 
+    /**
+     * Use this method to get supported currencies.
+     * Returns array of currencies.
+     */
     getCurrencies() {
         return this.request<CryptoBotCurrency[]>('getCurrencies')
     }
 
+    /**
+     * Use this method to get exchange rates of supported currencies.
+     * Returns array of currencies.
+     */
     getExchangeRates() {
         return this.request<CryptoBotExchangeRate[]>('getExchangeRates')
     }
 
+    /**
+     * Use this method to create a new invoice.
+     * Returns object of created invoice.
+     * @param input
+     */
     createInvoice(input: CryptoBotInvoiceInput) {
         return this.request<CryptoBotInvoice>('createInvoice', input)
     }
