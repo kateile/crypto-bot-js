@@ -3,7 +3,7 @@ import {CryptoBotAsset} from "./cryptoBotAsset";
 /**
  * This describes parameters obtained in result of createInvoice() response
  */
-export type CryptoBotInvoiceResult = {
+export type CryptoBotInvoice = {
     invoice_id: number,
     status: string,
     hash: string,

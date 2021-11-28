@@ -67,6 +67,34 @@ describe('CryptoBot', () => {
         expect(result.is_confirmed).toBeDefined()
     });
 
+    it('should send getInvoices', async () => {
+        const inv: CryptoBotInvoiceInput = {
+            amount: "2",
+            asset: "TON"
+        }
+
+        await cryptoBot.createInvoice(inv)
+        const result = await cryptoBot.getInvoices({
+            offset: 0
+        })
+
+        expect(result.count).toBeDefined()
+        expect(result.items).toBeDefined()
+
+        let item = result.items[0]
+
+        expect(item.invoice_id).toBeDefined()
+        expect(item.status).toBeDefined()
+        expect(item.hash).toBeDefined()
+        expect(item.asset).toBeDefined()
+        expect(item.amount).toBeDefined()
+        expect(item.pay_url).toBeDefined()
+        expect(item.created_at).toBeDefined()
+        expect(item.allow_comments).toBeDefined()
+        expect(item.allow_anonymous).toBeDefined()
+        expect(item.is_confirmed).toBeDefined()
+    });
+
     it('should send confirmPayment', async () => {
         const inv: CryptoBotInvoiceInput = {
             amount: "0.2",

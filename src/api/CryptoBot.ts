@@ -5,11 +5,13 @@ import {
     CryptoBotCurrency,
     CryptoBotExchangeRate,
     CryptoBotInvoiceInput,
-    CryptoBotInvoiceResult,
+    CryptoBotInvoice,
     CryptoBotMethod,
     CryptoBotOptions,
     CryptoBotResponseData
 } from "../types";
+import {CryptoBotGetInvoicesInput} from "../types/cryptoBotGetInvoicesInput";
+import {CryptoBotGetInvoicesResult} from "../types/cryptoBotGetInvoicesResult";
 
 const axios = require('axios').default;
 
@@ -66,7 +68,15 @@ export class CryptoBot {
     }
 
     createInvoice(input: CryptoBotInvoiceInput) {
-        return this.request<CryptoBotInvoiceResult>('createInvoice', input)
+        return this.request<CryptoBotInvoice>('createInvoice', input)
+    }
+
+    /**
+     * Use this method to get invoices of your app. On success, the returns array of invoices.
+     * @param input
+     */
+    getInvoices(input: CryptoBotGetInvoicesInput) {
+        return this.request<CryptoBotGetInvoicesResult>('getInvoices', input)
     }
 
     /**
@@ -74,6 +84,6 @@ export class CryptoBot {
      * @param input
      */
     confirmPayment(input: CryptoBotConfirmInvoiceInput) {
-        return this.request<CryptoBotInvoiceResult>('confirmPayment', input)
+        return this.request<CryptoBotInvoice>('confirmPayment', input)
     }
 }
