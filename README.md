@@ -72,11 +72,39 @@ These are the parameters you send in your request.
 
 #### CryptoBotConfirmPaymentInput
 
+| Name       | Type   | Optional | Default | Description |
+| ---------- | ------ | -------- | ------- | ----------- |
+| invoice_id | number | No       | None    |             |
+
 #### CryptoBotGetInvoicesInput
+
+| Name        | Type                              | Optional | Default | Description                                                                    |
+| ----------- | --------------------------------- | -------- | ------- | ------------------------------------------------------------------------------ |
+| asset       | [CryptoBotAsset](#CryptoBotAsset) | Yes      | None    | Currency code.                                                                 |
+| invoice_ids | string                            | Yes      | None    | Invoice IDs separated by comma.                                                |
+| status      | string                            | Yes      | None    | Status of invoices. Available statusses active or paid. Default all statusses. |
+| offset      | number                            | Yes      | 0       | Offset needed to return a specific subset of invoices.                         |
+| count       | number                            | Yes      | 100     | Number of invoices to return. Default 100, max 1000.                           |
 
 #### CryptoBotGetPaymentsInput
 
+| Name   | Type   | Optional | Default | Description                                            |
+| ------ | ------ | -------- | ------- | ------------------------------------------------------ |
+| offset | number | Yes      | 0       | Offset needed to return a specific subset of invoices. |
+| count  | number | Yes      | 100     | Number of invoices to return.                          |
+
 #### CryptoBotInvoiceInput
+
+| Name            | Type                                                    | Optional | Default  | Description                                                                                                                                                 |
+| --------------- | ------------------------------------------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| asset           | CryptoBotAsset                                          | No       | None     | Currency code.                                                                                                                                              |
+| amount          | string                                                  | No       | None     | Amount of the invoice in float. For example 125.50                                                                                                          |
+| description     | string                                                  | Yes      | None     | Description of the invoice. Up to 1024 symbols                                                                                                              |
+| paid_btn_name   | 'viewItem ' or 'openChannel' or 'openBot' or 'callback' | Yes      | callback | This button will be shown when your invoice was paid                                                                                                        |
+| paid_btn_url    | string                                                  | Yes      | None     | This is required when you use paid_btn_name. Paid button URL.You can set any payment success link (for example link on your bot). Start with https or http. |
+| payload         | string                                                  | Yes      | None     | Some data. User ID, payment id, or any data you want to attach to the invoice.                                                                              |
+| allow_comments  | boolean                                                 | Yes      | true     | Allow adding comments when paying an invoice.                                                                                                               |
+| allow_anonymous | boolean                                                 | Yes      | true     | Allow pay invoice as anonymous                                                                                                                              |
 
 ## Response Parameters
 
@@ -92,7 +120,9 @@ These are the parameters contained in a response of your request.
 
 #### CryptoBotAsset
 
-'BTC' | 'TON' | 'ETH' | 'USDT' | 'USDC' | 'BUSD'
+Supported assets are
+
+> BTC, TON, ETH (only testnet), USDT, USDC, BUSD.
 
 #### CryptoBotBalance
 
