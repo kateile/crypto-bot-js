@@ -43,13 +43,47 @@ cryptoBot.getMe().then((r) => {
 
 ## Methods
 
-| Method           | Description                                                      | Request Params | Response Result |
-| ---------------- | ---------------------------------------------------------------- | -------------- | --------------- |
-| getMe            | A simple method for testing your app's authentication token      | None           |                 |
-| getBalance       | Use this method to get balance of your app                       | None           |
-| getCurrencies    | Use this method to get supported currencies                      | None           |
-| getExchangeRates | Use this method to get exchange rates of supported currencies.   | None           |
-| createInvoice    | Use this method to create a new invoice                          |                |
-| getInvoices      | Use this method to get invoices of your app                      |                |
-| confirmPayment   | Use this method to confirm paid invoice of your app.             |                |
-| getPayments      | Use this method to get paid and unconfirmed invoices of your app |                |
+| Method           | Description                                                      | Request Params                                                | Response Result                                          |
+| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------- |
+| getMe            | A simple method for testing your app's authentication token      | None                                                          | [CryptoBotApp](#CryptoBotApp)                            |
+| getBalance       | Use this method to get balance of your app                       | None                                                          | [CryptoBotBalance](#CryptoBotBalance)                    |
+| getCurrencies    | Use this method to get supported currencies                      | None                                                          | Array of [CryptoBotCurrency](#CryptoBotExchangeRate)     |
+| getExchangeRates | Use this method to get exchange rates of supported currencies.   | None                                                          | Array of [CryptoBotExchangeRate](#CryptoBotExchangeRate) |
+| createInvoice    | Use this method to create a new invoice                          | [CryptoBotInvoiceInput](#CryptoBotInvoiceInput)               |
+| getInvoices      | Use this method to get invoices of your app                      | [CryptoBotGetInvoicesInput](#CryptoBotGetInvoicesInput)       |
+| confirmPayment   | Use this method to confirm paid invoice of your app.             | [CryptoBotConfirmInvoiceInput](#CryptoBotConfirmInvoiceInput) |
+| getPayments      | Use this method to get paid and unconfirmed invoices of your app | [CryptoBotGetPaymentsInput](#CryptoBotGetPaymentsInput)       |
+
+## Request Parameters
+
+#### CryptoBotConfirmInvoiceInput
+
+#### CryptoBotGetInvoicesInput
+
+#### CryptoBotGetPaymentsInput
+
+#### CryptoBotInvoiceInput
+
+## Response Parameters
+
+#### CryptoBotApp
+
+| Name                            | Type   | Description |
+| ------------------------------- | ------ | ----------- |
+| app_id                          | string |
+| name                            | string |
+| payment_processing_bot_username | string |
+
+#### CryptoBotBalance
+
+#### CryptoBotCurrency
+
+#### CryptoBotExchangeRate
+
+#### CryptoBotGetInvoicesResult
+
+#### CryptoBotGetPaymentsResult
+
+#### CryptoBotInvoice
+
+#### CryptoBotPayment
