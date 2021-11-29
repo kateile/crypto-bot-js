@@ -1,6 +1,6 @@
 {
   "name": "crypto-bot-js",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "files": [
@@ -10,7 +10,7 @@
   "author": "Sylvanus Kateile",
   "description": "Promise based Crypto Bot client for the browser and node.js",
   "scripts": {
-    "dev": "set DEBUG=crypto-bot && npm run build && node examples/express.js",
+    "dev": "set DEBUG=crypto-bot && npm run build && node examples/app.js",
     "build": "rimraf lib && tsc",
     "test": "jest --runInBand",
     "prettier:fix": "prettier --write \"**/**.ts\"",

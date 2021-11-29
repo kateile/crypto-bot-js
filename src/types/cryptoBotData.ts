@@ -1,9 +1,8 @@
+import {CryptoBotError} from "./cryptoBotError";
+
 /**
  * This represents the overall response from CryptoBot
  */
-import {CryptoBotError} from "./cryptoBotError";
-
-
 export type CryptoBotResponseData<T> = {
     /**
      * This will be true for success request and false otherwise

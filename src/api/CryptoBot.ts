@@ -40,12 +40,12 @@ export class CryptoBot {
             timeout: this.options.timeout ?? 60 * 1000,// default is 1 minute (60 milliseconds)
         });
 
-        debug('endpoint: %s', `${endpoint()}/${path}`)
+        debug('endpoint: %s', `${endpoint()}${path}`)
         debug('params: %j', params)
 
         const response = await instance.post(path, params);
 
-        debug('response status: %s', response.status)
+        debug('response status code: %s', response.status)
         debug('response data: %j', response.data)
 
         const data = response.data as CryptoBotResponseData<T>
