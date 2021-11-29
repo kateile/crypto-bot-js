@@ -11,6 +11,7 @@ import {
     CryptoBotInvoiceInput,
     CryptoBotMethod,
     CryptoBotOptions,
+    CryptoBotPayment,
     CryptoBotResponseData
 } from "../types";
 
@@ -38,6 +39,8 @@ export class CryptoBot {
 
         const response = await instance.post(path, params);
 
+        console.log('params: ', params) //todo use debug
+        console.log('link: ', endpoint()) //todo use debug
         console.log('response data: ', response.data) //todo use debug
 
         const data = response.data as CryptoBotResponseData<T>
@@ -104,7 +107,7 @@ export class CryptoBot {
      * @param input
      */
     confirmPayment(input: CryptoBotConfirmInvoiceInput) {
-        return this.request<CryptoBotInvoice>('confirmPayment', input)
+        return this.request<CryptoBotPayment>('confirmPayment', input)
     }
 
     /**

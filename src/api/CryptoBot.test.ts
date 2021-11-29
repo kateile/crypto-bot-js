@@ -49,8 +49,8 @@ describe('CryptoBot', () => {
 
     it('should send createInvoice', async () => {
         const inv: CryptoBotInvoiceInput = {
-            amount: "0.1",
-            asset: "BTC"
+            amount: "0.2",
+            asset: "TON"
         }
 
         const result = await cryptoBot.createInvoice(inv)
@@ -96,31 +96,26 @@ describe('CryptoBot', () => {
     });
 
     it('should send confirmPayment', async () => {
-        const inv: CryptoBotInvoiceInput = {
-            amount: "0.2",
-            asset: "BTC"
-        }
-
-        const invoiceResult = await cryptoBot.createInvoice(inv)
-
         const result = await cryptoBot.confirmPayment({
-            invoice_id: invoiceResult.invoice_id
+            invoice_id: 1308 //obtain this manually first.
         })
 
         expect(result.invoice_id).toBeDefined()
         expect(result.status).toBeDefined()
         expect(result.hash).toBeDefined()
+        expect(result.asset).toBeDefined()
+        expect(result.amount).toBeDefined()
+        expect(result.pay_url).toBeDefined()
+        expect(result.created_at).toBeDefined()
+        expect(result.paid_at).toBeDefined()
+        expect(result.allow_comments).toBeDefined()
+        expect(result.allow_anonymous).toBeDefined()
+        expect(result.is_confirmed).toBeDefined()
+        expect(result.confirmed_at).toBeDefined()
     });
 
     it('should send getPayments', async () => {
-        const invoiceInput: CryptoBotInvoiceInput = {
-            amount: "0.1",
-            asset: "TON"
-        }
-
-        const invoiceResult = await cryptoBot.createInvoice(invoiceInput)
-        await cryptoBot.confirmPayment({invoice_id: invoiceResult.invoice_id})
-
+        //You should have at least one payment for this to work
         const result = await cryptoBot.getPayments({
             offset: 0,
             count: 100
