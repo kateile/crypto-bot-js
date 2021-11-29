@@ -115,12 +115,29 @@ describe('CryptoBot', () => {
     });
 
     it('should send getPayments', async () => {
-        //You should have at least one payment for this to work
+        //You should have at least one unconfirmed payment for this to work
         const result = await cryptoBot.getPayments({
             offset: 0,
             count: 100
         })
 
         expect(result.count).toBeDefined()
+
+        const payment = result.items[0]
+
+        expect(payment.invoice_id).toBeDefined()
+        expect(payment.status).toBeDefined()
+        expect(payment.hash).toBeDefined()
+        expect(payment.asset).toBeDefined()
+        expect(payment.amount).toBeDefined()
+        expect(payment.pay_url).toBeDefined()
+        expect(payment.created_at).toBeDefined()
+        expect(payment.paid_at).toBeDefined()
+        expect(payment.allow_comments).toBeDefined()
+        expect(payment.allow_anonymous).toBeDefined()
+        expect(payment.is_confirmed).toBeDefined()
+
+        //Since it is not confirmed yet.
+        expect(payment.confirmed_at).not.toBeDefined()
     });
 })

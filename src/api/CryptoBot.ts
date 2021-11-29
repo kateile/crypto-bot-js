@@ -7,6 +7,7 @@ import {
     CryptoBotGetInvoicesInput,
     CryptoBotGetInvoicesResult,
     CryptoBotGetPaymentsInput,
+    CryptoBotGetPaymentsResult,
     CryptoBotInvoice,
     CryptoBotInvoiceInput,
     CryptoBotMethod,
@@ -116,7 +117,6 @@ export class CryptoBot {
      * @param input
      */
     getPayments(input: CryptoBotGetPaymentsInput) {
-        //todo this fails
-        return this.request<CryptoBotGetInvoicesResult>('getPayments', input)
+        return this.request<CryptoBotGetPaymentsResult>('getPayments', input)
     }
 }

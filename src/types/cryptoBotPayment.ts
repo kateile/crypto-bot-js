@@ -15,5 +15,5 @@ export type CryptoBotPayment = {
     allow_comments: boolean,
     allow_anonymous: boolean,
     is_confirmed: boolean,
-    confirmed_at: string
+    confirmed_at?: string //Won't be available in array of getPayments()
 }
