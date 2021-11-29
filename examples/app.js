@@ -1,5 +1,5 @@
 //Lets start by importing our module
-const cb = require('../lib') //should be require('crypto-bot-js')
+const cb = require('../lib') //should be require('crypto-bot')
 
 //Then you should create a new instance of CryptoBot
 const cryptoBot = new cb.CryptoBot({
