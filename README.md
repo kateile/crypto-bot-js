@@ -18,25 +18,37 @@ $ yarn add crypto-bot
 
 ## Usage
 
-Import module as
+### Javascript
 
 ```js
+//Import module as
 const cb = require('crypto-bot');
-```
 
-Then create new instance like
-
-```js
+//Then create new instance like
 const cryptoBot = new cb.CryptoBot({
   target: 'testnet', //or mainnet
   token: 'YOUR-TOKEN_HERE' //Example 3274:AAOBNJIheTfZ3Gwp3lTH4IwxAYXNnA38M5u
 });
+
+//And then you can call any method you want like
+cryptoBot.getMe().then((r) => {
+  console.log(`My App name is ${r.name}`);
+});
 ```
 
-And then you can call any method you want like
+### Typescript
 
-```js
-cryptoBot.getMe().then((r) => {
+```ts
+import {CryptoBot, CryptoBotApp} from 'crypto-bot';
+
+//Then you should create a new instance of CryptoBot
+const cryptoBot = new CryptoBot({
+  target: 'testnet',
+  token: 'YOUR-TOKEN_HERE' //Example 3274:AAOBNJIheTfZ3Gwp3lTH4IwxAYXNnA38M5u
+});
+
+//Here you can execute any method you want.
+cryptoBot.getMe().then((r: CryptoBotApp) => {
   console.log(`My App name is ${r.name}`);
 });
 ```
