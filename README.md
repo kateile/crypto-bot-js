@@ -68,6 +68,8 @@ cryptoBot.getMe().then((r: CryptoBotApp) => {
 
 ## Request Parameters
 
+These are the parameters you send in your request.
+
 #### CryptoBotConfirmPaymentInput
 
 #### CryptoBotGetInvoicesInput
@@ -77,6 +79,8 @@ cryptoBot.getMe().then((r: CryptoBotApp) => {
 #### CryptoBotInvoiceInput
 
 ## Response Parameters
+
+These are the parameters contained in a response of your request.
 
 #### CryptoBotApp
 
