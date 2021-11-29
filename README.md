@@ -7,13 +7,13 @@ NPM Module for [Crypto Pay API](https://t.me/CryptoBot) published for [contest](
 Using npm:
 
 ```bash
-$ npm install crypto-bot
+$ npm install crypto-bot-js
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add crypto-bot
+$ yarn add crypto-bot-js
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ $ yarn add crypto-bot
 
 ```js
 //Import module as
-const cb = require('crypto-bot');
+const cb = require('crypto-bot-js');
 
 //Then create new instance like
 const cryptoBot = new cb.CryptoBot({
@@ -39,7 +39,7 @@ cryptoBot.getMe().then((r) => {
 ### Typescript
 
 ```ts
-import {CryptoBot, CryptoBotApp} from 'crypto-bot';
+import {CryptoBot, CryptoBotApp} from 'crypto-bot-js';
 
 //Then you should create a new instance of CryptoBot
 const cryptoBot = new CryptoBot({

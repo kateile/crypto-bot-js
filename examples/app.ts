@@ -1,4 +1,4 @@
-import {CryptoBot, CryptoBotApp} from '../lib'; //from 'crypto-bot'
+import {CryptoBot, CryptoBotApp} from '../lib'; //from 'crypto-bot-js'
 
 //Then you should create a new instance of CryptoBot
 const cryptoBot = new CryptoBot({

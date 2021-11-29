@@ -1,5 +1,5 @@
 {
-  "name": "crypto-bot",
+  "name": "crypto-bot-js",
   "version": "0.0.1",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
