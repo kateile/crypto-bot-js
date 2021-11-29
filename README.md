@@ -55,16 +55,16 @@ cryptoBot.getMe().then((r: CryptoBotApp) => {
 
 ## Methods
 
-| Method           | Description                                                      | Request Params                                                | Response Result                                          |
-| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------- |
-| getMe            | A simple method for testing your app's authentication token      | None                                                          | [CryptoBotApp](#CryptoBotApp)                            |
-| getBalance       | Use this method to get balance of your app                       | None                                                          | Array of [CryptoBotBalance](#CryptoBotBalance)           |
-| getCurrencies    | Use this method to get supported currencies                      | None                                                          | Array of [CryptoBotCurrency](#CryptoBotExchangeRate)     |
-| getExchangeRates | Use this method to get exchange rates of supported currencies.   | None                                                          | Array of [CryptoBotExchangeRate](#CryptoBotExchangeRate) |
-| createInvoice    | Use this method to create a new invoice                          | [CryptoBotInvoiceInput](#CryptoBotInvoiceInput)               |
-| getInvoices      | Use this method to get invoices of your app                      | [CryptoBotGetInvoicesInput](#CryptoBotGetInvoicesInput)       |
-| confirmPayment   | Use this method to confirm paid invoice of your app.             | [CryptoBotConfirmPaymentInput](#CryptoBotConfirmPaymentInput) |
-| getPayments      | Use this method to get paid and unconfirmed invoices of your app | [CryptoBotGetPaymentsInput](#CryptoBotGetPaymentsInput)       |
+| Method           | Description                                                      | Request Params                                                | Response Result                                           |
+| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------- |
+| getMe            | A simple method for testing your app's authentication token      | None                                                          | [CryptoBotApp](#CryptoBotApp)                             |
+| getBalance       | Use this method to get balance of your app                       | None                                                          | Array of [CryptoBotBalance](#CryptoBotBalance)            |
+| getCurrencies    | Use this method to get supported currencies                      | None                                                          | Array of [CryptoBotCurrency](#CryptoBotExchangeRate)      |
+| getExchangeRates | Use this method to get exchange rates of supported currencies.   | None                                                          | Array of [CryptoBotExchangeRate](#CryptoBotExchangeRate)  |
+| createInvoice    | Use this method to create a new invoice                          | [CryptoBotInvoiceInput](#CryptoBotInvoiceInput)               | [CryptoBotInvoice](#CryptoBotInvoice)                     |
+| getInvoices      | Use this method to get invoices of your app                      | [CryptoBotGetInvoicesInput](#CryptoBotGetInvoicesInput)       | [CryptoBotGetInvoicesResult](#CryptoBotGetInvoicesResult) |
+| confirmPayment   | Use this method to confirm paid invoice of your app.             | [CryptoBotConfirmPaymentInput](#CryptoBotConfirmPaymentInput) | [CryptoBotPayment](#CryptoBotPayment)                     |
+| getPayments      | Use this method to get paid and unconfirmed invoices of your app | [CryptoBotGetPaymentsInput](#CryptoBotGetPaymentsInput)       | [CryptoBotGetPaymentsResult](#CryptoBotGetPaymentsResult) |
 
 ## Request Parameters
 
@@ -114,9 +114,9 @@ These are the parameters contained in a response of your request.
 
 | Name                            | Type   | Description |
 | ------------------------------- | ------ | ----------- |
-| app_id                          | string |
-| name                            | string |
-| payment_processing_bot_username | string |
+| app_id                          | string |             |
+| name                            | string |             |
+| payment_processing_bot_username | string |             |
 
 #### CryptoBotAsset
 
