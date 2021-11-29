@@ -1,6 +1,6 @@
 /**
  * This describes parameters obtained in result of createInvoice() response
  */
-export type CryptoBotConfirmInvoiceInput = {
+export type CryptoBotConfirmPaymentInput = {
   invoice_id: number;
 };

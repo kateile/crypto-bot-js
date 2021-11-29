@@ -1,7 +1,7 @@
 export * from './cryptoBotApp';
 export * from './cryptoBotAsset';
 export * from './cryptoBotBalance';
-export * from './cryptoBotConfirmInvoiceInput';
+export * from './cryptoBotConfirmPaymentInput';
 export * from './cryptoBotCurrency';
 export * from './cryptoBotData';
 export * from './cryptoBotError';
@@ -10,7 +10,7 @@ export * from './cryptoBotGetInvoicesInput';
 export * from './cryptoBotGetInvoicesResult';
 export * from './cryptoBotGetPaymentsResult';
 export * from './cryptoBotGetPaymentsInput';
-export * from './cryptoBotConfirmInvoiceInput';
+export * from './cryptoBotConfirmPaymentInput';
 export * from './cryptoBotInvoiceInput';
 export * from './cryptoBotInvoice';
 export * from './cryptoBotMethod';

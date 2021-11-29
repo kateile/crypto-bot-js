@@ -1,7 +1,7 @@
 import {
   CryptoBotApp,
   CryptoBotBalance,
-  CryptoBotConfirmInvoiceInput,
+  CryptoBotConfirmPaymentInput,
   CryptoBotCurrency,
   CryptoBotExchangeRate,
   CryptoBotGetInvoicesInput,
@@ -112,7 +112,7 @@ export class CryptoBot {
    * Use this method to confirm paid invoice of your app. On success, the return confirmed invoice.
    * @param input
    */
-  confirmPayment(input: CryptoBotConfirmInvoiceInput) {
+  confirmPayment(input: CryptoBotConfirmPaymentInput) {
     return this.request<CryptoBotPayment>('confirmPayment', input);
   }
 

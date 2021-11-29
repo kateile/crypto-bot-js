@@ -51,12 +51,12 @@ cryptoBot.getMe().then((r) => {
 | getExchangeRates | Use this method to get exchange rates of supported currencies.   | None                                                          | Array of [CryptoBotExchangeRate](#CryptoBotExchangeRate) |
 | createInvoice    | Use this method to create a new invoice                          | [CryptoBotInvoiceInput](#CryptoBotInvoiceInput)               |
 | getInvoices      | Use this method to get invoices of your app                      | [CryptoBotGetInvoicesInput](#CryptoBotGetInvoicesInput)       |
-| confirmPayment   | Use this method to confirm paid invoice of your app.             | [CryptoBotConfirmInvoiceInput](#CryptoBotConfirmInvoiceInput) |
+| confirmPayment   | Use this method to confirm paid invoice of your app.             | [CryptoBotConfirmPaymentInput](#CryptoBotConfirmPaymentInput) |
 | getPayments      | Use this method to get paid and unconfirmed invoices of your app | [CryptoBotGetPaymentsInput](#CryptoBotGetPaymentsInput)       |
 
 ## Request Parameters
 
-#### CryptoBotConfirmInvoiceInput
+#### CryptoBotConfirmPaymentInput
 
 #### CryptoBotGetInvoicesInput
 
