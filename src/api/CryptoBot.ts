@@ -15,9 +15,11 @@ import {
     CryptoBotPayment,
     CryptoBotResponseData
 } from "../types";
+import createDebug from 'debug';
 
 const axios = require('axios').default;
 
+const debug = createDebug('crypto-bot')
 
 export class CryptoBot {
     constructor(private options: CryptoBotOptions) {
@@ -38,18 +40,20 @@ export class CryptoBot {
             timeout: this.options.timeout ?? 60 * 1000,// default is 1 minute (60 milliseconds)
         });
 
+        debug('endpoint: %s', `${endpoint()}/${path}`)
+        debug('params: %j', params)
+
         const response = await instance.post(path, params);
 
-        console.log('params: ', params) //todo use debug
-        console.log('link: ', endpoint()) //todo use debug
-        console.log('response data: ', response.data) //todo use debug
+        debug('response status: %s', response.status)
+        debug('response data: %j', response.data)
 
         const data = response.data as CryptoBotResponseData<T>
 
         if (data.ok) {
             return data.result!
         } else {
-            throw new Error(`Request failed with error: ${data.error}`)
+            throw new Error(`Request failed with error: ${JSON.stringify(data.error)}`)
         }
     }
 
