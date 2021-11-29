@@ -10,16 +10,15 @@
   "author": "Sylvanus Kateile",
   "description": "Promise based Crypto Bot client for the browser and node.js",
   "scripts": {
-    "dev": "set DEBUG=mwapp && npm run build && node examples/express.js",
+    "dev": "set DEBUG=crypto-bot && npm run build && node examples/express.js",
     "build": "rimraf lib && tsc",
     "test": "jest --runInBand",
     "prettier:fix": "prettier --write \"**/**.ts\"",
-    "prepare": "npm run generate && npm run build",
+    "prepare": "npm run build",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
-    "pub": "npm publish --access=public",
-    "generate": "graphql-codegen --config codegen.yml"
+    "pub": "npm publish --access=public"
   },
   "repository": {
     "type": "git",
