@@ -197,3 +197,18 @@ Supported assets are
 | allow_anonymous | boolean                           |                                              |
 | is_confirmed    | boolean                           |                                              |
 | confirmed_at    | string or undefined               | Won't be available in array of getPayments() |
+
+## Tests
+
+Run
+
+```bash
+yarn test
+```
+
+**Things to consider before running tests**:
+
+- For the **confirmTest** to pass you need to manually pay for invoice
+  using [CryptoTestnetBot](https://t.me/CryptoTestnetBot)
+- For the **getPayments** to pass you need to at have at least one unconfirmed payment.
+- Also, you need to have your own app key since I may delete my app any time. You can get [here](https://t.me/CryptoTestnetBot).
