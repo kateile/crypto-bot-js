@@ -1,6 +1,6 @@
 # CryptoBotJs
 
-NPM Module for [Crypto Pay API](https://t.me/CryptoBot) published for [contest](https://t.me/CryptoBotEN/27).
+NPM Module for [Crypto Pay API](https://t.me/CryptoBot) published for this [contest](https://t.me/CryptoBotEN/27) which I ended up in [third place](https://t.me/CryptoBotEN/32) and got rewardered $150.
 
 ## Installing
 
